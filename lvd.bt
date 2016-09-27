@@ -1,0 +1,93 @@
+//------------------------------------------------
+//--- 010 Editor v7.0.2 Binary Template
+//
+//      File: LVD
+//   Authors: Demonslayerx8
+//   Version: 0.1
+//   Purpose: Collision/Misc Data in Smash 4
+//  Category: Stage Data
+//  ID Bytes: 4C 56 44 31
+//------------------------------------------------
+BigEndian();
+struct FILE{
+    struct HEADER{
+        FSkip(6);
+        char magic[4]; //LVD1
+        FSkip(1);
+    }header<bgcolor=cBlue>;
+
+    struct COUNT{
+        uint32 colCount;
+        FSkip(12);
+    }colCount<bgcolor=cLtGreen>;
+
+    struct COLNAME{
+        FSkip(1);
+        char colName[20];
+        FSkip(36);
+    }colName<bgcolor=cAqua>;
+
+    struct POLYNAME{
+        FSkip(1);
+        char polyName[27];
+        FSkip(37);
+    }polyName<bgcolor=cAqua>;
+
+    struct COLPOSI{
+        FSkip(1);
+        float values[1*3];
+    }colPosi<bgcolor=cLtBlue>;
+
+    struct FLAG1{
+        byte hasBone; //Flag
+        FSkip(1);
+    }flag1<bgcolor=cRed>;
+
+    struct Unk1{
+        float values[1*1];
+        FSkip(1);
+    }unk1<bgcolor=cYellow>;
+
+    struct Unk2{
+        float values[1*3];
+    }unk2<bgcolor=cYellow>;
+
+    struct BoneID{
+        float values[1*1];
+        FSkip(1);
+    }boneID<bgcolor=cLtRed>;
+
+    struct BoneName{
+        char boneName[18];
+    }colName<bgcolor=cAqua>;
+
+    struct Unk3{
+        float values[12];
+        FSkip(-1);
+    }unk3<bgcolor=cYellow>;
+
+    struct FLAG2{
+        byte unknownFlag; //Flag
+        FSkip(1);
+    }flag2<bgcolor=cRed>;
+
+    struct FLAG3{
+        byte hasFallthrough; //Flag
+        FSkip(1);
+    }flag3<bgcolor=cRed>;
+
+    struct VertCount{
+        float values[1*1];
+        FSkip(1);
+    }vertCount<bgcolor=cLtGreen>;
+
+struct vertLocation{
+    int i;
+    for( i = 0, x = 0; 0xFF; i++ )
+        {
+            x += i;
+        FSkip(1);
+        }
+    }verts<bgcolor=cLtRed>;
+
+}file;
